@@ -7,26 +7,28 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var config = require('./db/config.json')
 var fetch = require('node-fetch');
+const { getjson } = require('./DAO/getjson');
+
 
 
 // Configure MySQL connection
 var connection = mysql.createConnection({
-	host     : config.dbhost,
-    user     : config.dbuser,
-    password : config.dbpassword,
-    database : config.dbname
-  })
+  host: config.dbhost,
+  user: config.dbuser,
+  password: config.dbpassword,
+  database: config.dbname
+})
 
 //Establish MySQL connection
-connection.connect(function(err) {
-   if (err) 
-      throw err
-   else {
-       console.log('Connected to MySQL');
-       // Start the app when connection is ready
-       app.listen(3000);
-       console.log('Server listening on port 3000');
- }
+connection.connect(function (err) {
+  if (err)
+    throw err
+  else {
+    console.log('Connected to MySQL');
+    // Start the app when connection is ready
+    app.listen(3000);
+    console.log('Server listening on port 3000');
+  }
 });
 
 app.use(bodyParser.json())
@@ -37,14 +39,12 @@ app.use(bodyParser.json())
 
 
 
-var datajson = fetch('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&sort=date&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c')
-.then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
-.then(data => console.log(data))
-.catch(error => console.log('ERROR'));
 
+
+getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&sort=date&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c').then(json => console.log(json))
 /*var result = JSON.parse(datajson);*/
 
-/*console.log(JSON.stringify(datajson).[1].[0]);*/
+/*console.log(datajson[0].[0]);*/
 var values = [];
 
 /*for(var i=0; i< datajson.length; i++)
