@@ -1,4 +1,5 @@
 var fetch = require('node-fetch');
+
 const getjson = async (url) => {
     return new Promise((resolve, reject) => {
       fetch(url)

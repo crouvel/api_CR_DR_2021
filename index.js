@@ -1,4 +1,3 @@
-//Parse data from JSON POST and insert into MYSQL
 
 var express = require('express');
 var app = express();
@@ -8,8 +7,6 @@ var mysql = require('mysql');
 var config = require('./db/config.json')
 var fetch = require('node-fetch');
 const { getjson } = require('./DAO/getjson');
-
-
 
 // Configure MySQL connection
 var connection = mysql.createConnection({
@@ -30,16 +27,6 @@ connection.connect(function (err) {
     console.log('Server listening on port 3000');
   }
 });
-
-app.use(bodyParser.json())
-
-/*app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname+ '/myfile.html'));
-});*/
-
-
-
-
 
 getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&sort=date&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c').then(json => console.log(json))
 /*var result = JSON.parse(datajson);*/
