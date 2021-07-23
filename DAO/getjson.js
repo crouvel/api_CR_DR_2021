@@ -10,4 +10,5 @@ const getjson = async (url) => {
     )
   };
 
+
   module.exports.getjson = getjson;

@@ -4,12 +4,13 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
-var config = require('./db/config.json')
+var config = require('../db/config.json')
 var fetch = require('node-fetch');
-const { getjson } = require('./DAO/getjson');
+const { getjson } = require('../DAO/getjson');
 
 // Configure MySQL connection
-var connection = mysql.createConnection({
+
+const connection = mysql.createConnection({
   host: config.dbhost,
   user: config.dbuser,
   password: config.dbpassword,
@@ -28,13 +29,14 @@ connection.connect(function (err) {
   }
 });
 
-getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&sort=date&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c').then(json => console.log(json))
-/*var result = JSON.parse(datajson);*/
+getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&sort=date&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c')
+  .then(json => console.log(json))
+  /*.then( 
+    
+  )*/
 
-/*console.log(datajson[0].[0]);*/
-var values = [];
-
-/*for(var i=0; i< datajson.length; i++)
+/*var values = [];
+for(var i=0; i< datajson.length; i++)
   values.push([jsondata[i].name,jsondata[i].age]);
 
 //Bulk insert using nested array [ [a,b],[c,d] ] will be flattened to (a,b),(c,d)
@@ -46,3 +48,5 @@ connection.query('INSERT INTO members (name, age) VALUES ?', [values], function(
      res.send('Success');
   }
 });*/
+
+module.exports.connection = connection;
