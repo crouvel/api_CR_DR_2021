@@ -3,19 +3,24 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
-var mysql = require('mysql');
 var config = require('../db/config.json')
+var mysql = require('mysql');
+
 var fetch = require('node-fetch');
 const { getjson } = require('../DAO/getjson');
+const { getSystemErrorMap } = require('util');
+var recordsRouter = require('../routes/getrecordsRoute');
 
+
+app.use('/api/records', recordsRouter);
 // Configure MySQL connection
 
-const connection = mysql.createConnection({
+connection =  mysql.createConnection({
   host: config.dbhost,
   user: config.dbuser,
   password: config.dbpassword,
   database: config.dbname
-})
+});
 
 //Establish MySQL connection
 connection.connect(function (err) {
@@ -29,8 +34,13 @@ connection.connect(function (err) {
   }
 });
 
-getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&sort=date&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c')
+function json(){
+return getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&sort=date&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c')
   .then(json => console.log(json))
+  
+}
+
+console.log(json().length)
   /*.then( 
     
   )*/
@@ -49,4 +59,4 @@ connection.query('INSERT INTO members (name, age) VALUES ?', [values], function(
   }
 });*/
 
-module.exports.connection = connection;
+

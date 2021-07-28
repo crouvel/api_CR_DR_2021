@@ -1,5 +1,13 @@
-const { connection } = require("../server");
 
+var config = require('../db/config.json')
+var mysql = require('mysql');
+
+connection =  mysql.createConnection({
+    host: config.dbhost,
+    user: config.dbuser,
+    password: config.dbpassword,
+    database: config.dbname
+  });
 
 const mapjson = async (JSobjectjson) => {
     return new Promise((resolve, reject) => {
@@ -15,15 +23,17 @@ const mapjson = async (JSobjectjson) => {
         
         
         //Bulk insert using nested array [ [a,b],[c,d] ] will be flattened to (a,b),(c,d)
-        connection.query('INSERT INTO Records (recordid,gc_obo_nature_c,gc_obo_gare_origine_r_name,date,gc_obo_nom_recordtype_sc_c,gc_obo_type_c,gc_obo_gare_origine_r_code_uic_c) VALUES ?', 
+        connection.query('INSERT IGNORE INTO Records (recordid,gc_obo_nature_c,gc_obo_gare_origine_r_name,date,gc_obo_nom_recordtype_sc_c,gc_obo_type_c,gc_obo_gare_origine_r_code_uic_c) VALUES ?', 
         [values], 
         
         function(err,result) {
           if(err) {
-             res.send('Error');
+             res.send(`Error at ${i}`);
+             reject(err);
           }
          else {
-             res.send('Success');
+             res.send('Success at '+i);
+             resolve(result);
           }
     }
     )

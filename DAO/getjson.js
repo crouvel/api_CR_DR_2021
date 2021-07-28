@@ -4,7 +4,7 @@ const getjson = async (url) => {
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
-        .then(data => resolve(data.records[0]))
+        .then(data => resolve(data))
         .catch(error => reject(error));
     }
     )
