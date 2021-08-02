@@ -5,14 +5,15 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var config = require('../db/config.json')
 var mysql = require('mysql');
-
-var fetch = require('node-fetch');
 const { getjson } = require('../DAO/getjson');
-const { getSystemErrorMap } = require('util');
-var recordsRouter = require('../routes/getrecordsRoute');
+var fetch = require('node-fetch');
 
+/*const { mapjson } = require('../db/mapjson');*/
+/*var jsonRouter = require('../routes/recordsjsonRoute');*/
+var jsontosqlRouter = require('../routes/postrecordsRoute');
 
-app.use('/api/records', recordsRouter);
+/*app.use('/api/records', jsonRouter);*/
+app.use('/api/records/post', jsontosqlRouter);
 // Configure MySQL connection
 
 connection =  mysql.createConnection({
@@ -34,18 +35,23 @@ connection.connect(function (err) {
   }
 });
 
-function json(){
-return getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&sort=date&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c')
-  .then(json => console.log(json))
-  
-}
+getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&sort=date&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c');
 
-console.log(json().length)
+
+
+
+
+
+
+
+
+  
+  
   /*.then( 
     
-  )*/
+  )
 
-/*var values = [];
+var values = [];
 for(var i=0; i< datajson.length; i++)
   values.push([jsondata[i].name,jsondata[i].age]);
 
