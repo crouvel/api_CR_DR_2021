@@ -36,12 +36,13 @@ const getjson = async (url) => {
                   }
                   else {
                       
-                      console.log("rows inserted !");
+                      /*console.log("rows inserted !");*/
                       
                   }
               }
           )
             }
+            console.log("done!");
             
         })
        

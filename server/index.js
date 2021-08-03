@@ -13,7 +13,7 @@ var fetch = require('node-fetch');
 var jsontosqlRouter = require('../routes/postrecordsRoute');
 
 /*app.use('/api/records', jsonRouter);*/
-app.use('/api/records/post', jsontosqlRouter);
+/*app.use('/api/records/post', jsontosqlRouter);*/
 // Configure MySQL connection
 
 connection =  mysql.createConnection({
@@ -35,34 +35,8 @@ connection.connect(function (err) {
   }
 });
 
-getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&sort=date&facet=date&facet=gc_obo_gare_origine_r_name&facet=gc_obo_type_c');
+getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&rows=100&sort=date');
 
 
-
-
-
-
-
-
-
-  
-  
-  /*.then( 
-    
-  )
-
-var values = [];
-for(var i=0; i< datajson.length; i++)
-  values.push([jsondata[i].name,jsondata[i].age]);
-
-//Bulk insert using nested array [ [a,b],[c,d] ] will be flattened to (a,b),(c,d)
-connection.query('INSERT INTO members (name, age) VALUES ?', [values], function(err,result) {
-  if(err) {
-     res.send('Error');
-  }
- else {
-     res.send('Success');
-  }
-});*/
 
 
