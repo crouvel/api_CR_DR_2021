@@ -3,3 +3,4 @@ db/config.json
 config/config.json
 routes/postrecordsRoute.js
 routes/recordsjsonRoute.js
+.env
