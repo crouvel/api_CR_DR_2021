@@ -35,7 +35,7 @@ connection.connect(function (err) {
   }
 });
 
-getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&rows=100&sort=date');
+getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&rows=1000&sort=date');
 
 
 
