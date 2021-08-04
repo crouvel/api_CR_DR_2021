@@ -7,6 +7,7 @@ var config = require('../db/config.json')
 var mysql = require('mysql');
 const { getjson } = require('../DAO/getjson');
 var fetch = require('node-fetch');
+require('dotenv').config();
 
 /*const { mapjson } = require('../db/mapjson');*/
 /*var jsonRouter = require('../routes/recordsjsonRoute');*/
@@ -17,10 +18,10 @@ var jsontosqlRouter = require('../routes/postrecordsRoute');
 // Configure MySQL connection
 
 connection =  mysql.createConnection({
-  host: config.dbhost,
-  user: config.dbuser,
-  password: config.dbpassword,
-  database: config.dbname
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
 
 //Establish MySQL connection
@@ -37,6 +38,6 @@ connection.connect(function (err) {
 
 getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&rows=1000&sort=date');
 
-
+module.exports.connection = connection;
 
 
