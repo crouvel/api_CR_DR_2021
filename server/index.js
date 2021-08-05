@@ -17,7 +17,7 @@ var jsontosqlRouter = require('../routes/postrecordsRoute');
 /*app.use('/api/records/post', jsontosqlRouter);*/
 // Configure MySQL connection
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 connection =  mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
