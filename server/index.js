@@ -17,6 +17,7 @@ var jsontosqlRouter = require('../routes/postrecordsRoute');
 /*app.use('/api/records/post', jsontosqlRouter);*/
 // Configure MySQL connection
 
+const port = process.env.PORT || 3000;
 connection =  mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -31,13 +32,13 @@ connection.connect(function (err) {
   else {
     console.log('Connected to MySQL');
     // Start the app when connection is ready
-    app.listen(3000);
-    console.log('Server listening on port 3000');
+    app.listen(port);
+    console.log('Server listening on port ' + port);
   }
 });
 
 getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&rows=1000&sort=date');
 
-module.exports.connection = connection;
+
 
 
