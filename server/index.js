@@ -7,13 +7,16 @@ var config = require('../db/config.json')
 var mysql = require('mysql');
 const { getjson } = require('../DAO/getjson');
 var fetch = require('node-fetch');
+var getRecordsRoute = require('../routes/recordsRoute');
+var typesCountRoute = require('../routes/typesRoute');
 require('dotenv').config();
 
 /*const { mapjson } = require('../db/mapjson');*/
 /*var jsonRouter = require('../routes/recordsjsonRoute');*/
-var jsontosqlRouter = require('../routes/postrecordsRoute');
 
-/*app.use('/api/records', jsonRouter);*/
+
+app.use('/api/records', getRecordsRoute);
+app.use('/api/records/typescount', typesCountRoute);
 /*app.use('/api/records/post', jsontosqlRouter);*/
 // Configure MySQL connection
 

@@ -9,10 +9,10 @@ var connection =  mysql.createConnection({
   });
 
 
-const recordsdb = () => {
+const typesdb = () => {
 
     return new Promise((resolve, reject) => {
-        connection.query(`SELECT * FROM Records ORDER BY Records.date DESC`, (err, results) => {
+        connection.query(`SELECT gc_obo_type_c, COUNT(gc_obo_type_c) as total FROM Records GROUP BY gc_obo_type_c`, (err, results) => {
             if(err){
                 return reject(err);
             }
@@ -21,4 +21,4 @@ const recordsdb = () => {
     })
 };
 
-module.exports.recordsdb = recordsdb;
+module.exports.typesdb = typesdb;
