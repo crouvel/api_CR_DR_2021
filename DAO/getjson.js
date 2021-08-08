@@ -17,7 +17,6 @@ const getjson = async (url) => {
         .then(res => res.json())
         .then(json => {
             var values = [];
-            var b = false;
             for (var i = 0; i < json.records.length; i++) {
                 values.push([json.records[i].recordid, json.records[i].fields.gc_obo_nature_c,
                 json.records[i].fields.gc_obo_gare_origine_r_name,
