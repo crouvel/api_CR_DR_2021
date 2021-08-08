@@ -9,12 +9,14 @@ const { getjson } = require('../DAO/getjson');
 var fetch = require('node-fetch');
 var getRecordsRoute = require('../routes/recordsRoute');
 var typesCountRoute = require('../routes/typesRoute');
+var cors = require("cors");
 require('dotenv').config();
 
 /*const { mapjson } = require('../db/mapjson');*/
 /*var jsonRouter = require('../routes/recordsjsonRoute');*/
 
 
+app.use(cors());
 app.use('/api/records', getRecordsRoute);
 app.use('/api/records/typescount', typesCountRoute);
 /*app.use('/api/records/post', jsontosqlRouter);*/
