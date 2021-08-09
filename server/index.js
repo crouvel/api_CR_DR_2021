@@ -5,6 +5,7 @@ var mysql = require('mysql');
 const { getjson } = require('../DAO/getjson');
 var getRecordsRoute = require('../routes/recordsRoute');
 var typesCountRoute = require('../routes/typesRoute');
+var garesCountRoute = require('../routes/garesRoute');
 var cors = require("cors");
 require('dotenv').config();
 
@@ -14,6 +15,8 @@ require('dotenv').config();
 app.use(cors());
 app.use('/api/records', getRecordsRoute);
 app.use('/api/records/typescount', typesCountRoute);
+app.use('/api/records/garescount', garesCountRoute);
+
 /*app.use('/api/records/post', jsontosqlRouter);*/
 // Configure MySQL connection
 
