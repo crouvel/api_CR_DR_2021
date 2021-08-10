@@ -1,3 +1,4 @@
+
 'use strict';
 
 const fs = require('fs');
@@ -7,6 +8,9 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
+
+/************************* FICHIER AUTO-GENERE PAR SEQUELIZE LORS DE LA CREATION DES ATTRIBUTS SUR LE TERMINAL *******************/
+/********************************* Configuration de la création de la table Records **********************************************/
 
 let sequelize;
 if (config.use_env_variable) {

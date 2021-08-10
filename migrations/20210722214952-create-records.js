@@ -1,7 +1,15 @@
+
+
+
+/******FICHIER AUTO-GENERE PAR SEQUELIZE AU MOMENT DE LA MIGRATION DE LA TABLE DANS LE SERVEUR MYSQL******/
+
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
+    
+    //Création de la table Records si elle n'existe pas
     return queryInterface.createTable('Records', {
+      
       id: {
         allowNull: false,
         autoIncrement: true,

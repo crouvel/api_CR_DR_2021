@@ -9,19 +9,19 @@ var garesCountRoute = require('../routes/garesRoute');
 var cors = require("cors");
 require('dotenv').config();
 
-/*const { mapjson } = require('../db/mapjson');*/
-/*var jsonRouter = require('../routes/recordsjsonRoute');*/
-
+/* Utilisation de la librairie node cors afin de pouvoir utiliser les routes de l'API au niveau du front-end*/
 app.use(cors());
+
+/* Exploitation par l'application des trois routes créées aux chemins suivants correspondants.*/
 app.use('/api/records', getRecordsRoute);
 app.use('/api/records/typescount', typesCountRoute);
 app.use('/api/records/garescount', garesCountRoute);
 
-/*app.use('/api/records/post', jsontosqlRouter);*/
-// Configure MySQL connection
-
 const port = process.env.PORT || 5000;
 
+/* Variable connection pour accéder aux identifiants de la base de données (bdd)
+* et se connecter à celle-ci.
+*/
 connection =  mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -29,7 +29,7 @@ connection =  mysql.createConnection({
   database: process.env.DB_NAME
 });
 
-//Establish MySQL connection
+/*Etablir la connection au serveur mysql*/
 connection.connect(function (err) {
   if (err)
     throw err
@@ -41,6 +41,7 @@ connection.connect(function (err) {
   }
 });
 
+/* Appel à la méthode DAO getjson() avec l'url des données records de l'API en paramètre */
 getjson('https://ressources.data.sncf.com/api/records/1.0/search/?dataset=objets-trouves-gares&q=&rows=1000&sort=date');
 
 
