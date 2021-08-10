@@ -2,6 +2,10 @@ var mysql = require('mysql');
 require('dotenv').config();
 
 /* Variable connection pour accéder aux identifiants de la bdd et s'y connecter.
+host: hôte
+user: utilisateur
+password: mot de passe
+database : base de données
 */
 var connection = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -17,7 +21,7 @@ const typesdb = () => {
     /*Création d'une PROMESSE (Promise) pour gérer les erreurs de la requête sql. */
     return new Promise((resolve, reject) => {
 
-        /* Select sql query pour afficher les attributs selectionnés de la table Records et toutes les données correcpondantes */
+        /* Select sql query pour afficher les attributs selectionnés de la table Records et toutes les données correspondantes */
         connection.query(`SELECT gc_obo_type_c, COUNT(gc_obo_type_c) as total FROM Records GROUP BY gc_obo_type_c`,
 
             (err, results) => {

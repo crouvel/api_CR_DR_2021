@@ -3,6 +3,10 @@ var mysql = require('mysql');
 require('dotenv').config();
 
 /* Variable connection pour accéder aux identifiants de la bdd et s'y connecter.
+host: hôte
+user: utilisateur
+password: mot de passe
+database : base de données
 */
 var connection = mysql.createConnection({
     host: process.env.DB_HOST,
