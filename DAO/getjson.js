@@ -9,14 +9,14 @@ l'insérer dans une table de base de données mysql.
 */
 
 const getjson = async (url) => {
-    
+
     //Utilisation de la méthode fetch pour récupérer la donnée "brute" de l'url d'API  
-    fetch(url)  
-    .then(res => res.json())
-    //Premier .then() asynchrone représentant la promesse qui transforme les données reçues du fetch au format JSON.
-      
-        .then(json => {  
-            
+    fetch(url)
+        .then(res => res.json())
+        //Premier .then() asynchrone représentant la promesse qui transforme les données reçues du fetch au format JSON.
+
+        .then(json => {
+
             /*Appel à la méthode mapjson()
             Deuxième méthode qui fait partie de la DAO.
             */
