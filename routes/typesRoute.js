@@ -1,3 +1,6 @@
+/***** Route disponible à l'URL : http://localhost:5000/api/records/typescount *****/
+/****** A déployer *******/
+
 const express = require('express');
 const db = require('../db/countTypesdb');
 const router = express.Router();

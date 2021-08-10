@@ -1,12 +1,21 @@
+/******** FICHIER PRINCIPAL POUR LE SERVEUR ********/
 
+/*express pour avoir un serveur qui tourne*/
 var express = require('express');
 var app = express();
+/* mysql pour se connecter à la bdd via le serveur mysql */
 var mysql = require('mysql');
 const { getjson } = require('../DAO/getjson');
+
+/* importation des routes pour exploiter par la suite l'API*/
 var getRecordsRoute = require('../routes/recordsRoute');
 var typesCountRoute = require('../routes/typesRoute');
 var garesCountRoute = require('../routes/garesRoute');
+
+/* cors pour utiliser les paths de l'API sur une autre application (en local pour le moment) */
 var cors = require("cors");
+
+/* dotenv pour avoir accès aux identifiants cachés de la bdd */
 require('dotenv').config();
 
 /* Utilisation de la librairie node cors afin de pouvoir utiliser les routes de l'API au niveau du front-end*/

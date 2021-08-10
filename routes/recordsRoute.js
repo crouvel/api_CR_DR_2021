@@ -1,3 +1,6 @@
+/***** Route disponible à l'URL : http://localhost:5000/api/records *****/
+/****** A déployer *******/
+
 const express = require('express');
 const db = require('../db/recordsdb');
 const router = express.Router();

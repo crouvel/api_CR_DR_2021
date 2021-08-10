@@ -1,3 +1,6 @@
+/***** Route disponible à l'URL : http://localhost:5000/api/records/garescount *****/
+/****** A déployer *******/
+
 const express = require('express');
 const db = require('../db/countGaresdb');
 const router = express.Router();
