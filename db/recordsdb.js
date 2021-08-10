@@ -12,7 +12,7 @@ var connection =  mysql.createConnection({
 const recordsdb = () => {
 
     return new Promise((resolve, reject) => {
-        connection.query(`SELECT date as Date, gc_obo_gare_origine_r_name as Gare, gc_obo_gare_origine_r_code_uic_c as "Code UIC", gc_obo_nature_c as "Nature de l'object", gc_obo_type_c as "Type" FROM Records ORDER BY Records.date DESC`, (err, results) => {
+        connection.query(`SELECT DATE_FORMAT(date, "%d/%m/%Y %T") as Date, gc_obo_gare_origine_r_name as Gare, gc_obo_gare_origine_r_code_uic_c as "Code UIC", gc_obo_nature_c as "Nature de l'object", gc_obo_type_c as "Type" FROM Records ORDER BY Records.date DESC`, (err, results) => {
             if(err){
                 return reject(err);
             }
