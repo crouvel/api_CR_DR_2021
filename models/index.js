@@ -9,7 +9,7 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
-/************************* FICHIER AUTO-GENERE PAR SEQUELIZE LORS DE LA CREATION DES ATTRIBUTS SUR LE TERMINAL *******************/
+/************************* FICHIER AUTO-GENERE PAR SEQUELIZE LORS DE LA CREATION DE LA TABLE SUR LE TERMINAL *******************/
 /********************************* Configuration de la création de la table Records **********************************************/
 
 let sequelize;

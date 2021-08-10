@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 
-  /************************* FICHIER AUTO-GENERE PAR SEQUELIZE LORS DE LA CREATION DES ATTRIBUTS SUR LE TERMINAL *******************/
+  /************************* FICHIER AUTO-GENERE PAR SEQUELIZE LORS DE LA CREATION DE LA TABLE SUR LE TERMINAL *******************/
 
   /************************************* COMMANDE UTILISEE CREATION TABLE************************************
 > sequelize model:create --attributes "recordid:string gc_obo_nature_c:string 
