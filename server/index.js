@@ -19,10 +19,9 @@ app.use('/api/records/garescount', garesCountRoute);
 
 const port = process.env.PORT || 5000;
 
-/* Variable connection pour accéder aux identifiants de la base de données (bdd)
-* et se connecter à celle-ci.
+/* Variable connection pour accéder aux identifiants de la bdd et s'y connecter.
 */
-connection =  mysql.createConnection({
+var connection =  mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
