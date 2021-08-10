@@ -32,7 +32,7 @@ const mapjson = async (json) => {
         json.records[i].fields.gc_obo_gare_origine_r_code_uic_c,
         ]);
 
-        //L'insertion en masse à l'aide d'un tableau imbriqué [ [a,b],[c,d] ] sera aplatie en (a,b),(c,d)
+        //L'insertion se fait à l'aide d'un tableau imbriqué sous la forme [ [a,b],[c,d] ] transformée au format (a,b),(c,d)
         connection.query(
             'INSERT IGNORE INTO Records (recordid,gc_obo_nature_c,gc_obo_gare_origine_r_name,date,gc_obo_nom_recordtype_sc_c,gc_obo_type_c,gc_obo_gare_origine_r_code_uic_c) VALUES ?',
             [values],
