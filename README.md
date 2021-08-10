@@ -7,7 +7,7 @@ Le but est de recueillir les données d'une API développée par la SNCF, et dis
 Un coté front est développé en ReactJS en parallèle.
 
 Ces données ouvertes au public et à leur exploitation proviennent d'un site dédié aux open data de la SNCF.
-Elles sont disponibles à l'adresse suivante : https://ressources.data.sncf.com/explore/dataset/objets-trouves-gares/table/?sort=date&q=.
+Elles sont disponibles à l'adresse suivante : https://ressources.data.sncf.com/explore/dataset/objets-trouves-gares/information/?sort=date&q=.
 
 ## Technologie utilisée
 
