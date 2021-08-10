@@ -21,7 +21,7 @@ const port = process.env.PORT || 5000;
 
 /* Variable connection pour accéder aux identifiants de la bdd et s'y connecter.
 */
-var connection =  mysql.createConnection({
+var connection = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
