@@ -12,3 +12,15 @@ Elles sont disponibles à l'adresse suivante : https://ressources.data.sncf.com/
 ## Technologie utilisée
 
 L'API est développée en NodeJS, avec le framework ExpressJS.
+
+## Pour installer les dépendances
+
+Dans le répertoire du projet, lancez la commande :
+
+### `npm install`
+
+## Pour lancer le serveur 
+
+Dans le répertoiire du projet, lancez la commande : 
+
+### `npm run dev`
