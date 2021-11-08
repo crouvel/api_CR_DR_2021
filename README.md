@@ -21,6 +21,8 @@ Dans le répertoire du projet, lancez la commande :
 
 ## Pour lancer le serveur 
 
-Dans le répertoiire du projet, lancez la commande : 
+Dans le répertoire du projet, lancez la commande : 
 
 ### `npm run dev`
+
+
