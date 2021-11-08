@@ -27,6 +27,7 @@ Dans le répertoire du projet, lancez la commande :
 
 L'API se lance par défaut sur le port 5000.
 Ouvrez l'adresse http://localhost:5000 pour charger l'application sur votre navigateur.
+
 Veuillez ajouter les chemins configurés conrrespondants afin de consulter les données associées aux routes de l'API.
 
 
