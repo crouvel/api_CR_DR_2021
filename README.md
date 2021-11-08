@@ -25,4 +25,7 @@ Dans le répertoire du projet, lancez la commande :
 
 ### `npm run dev`
 
+L'API se lance par défaut sur le port 5000.
+Ouvrez l'adresse http://localhost:5000 pour charger l'application sur votre navigateur.
+
 
